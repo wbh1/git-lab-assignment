@@ -5,7 +5,11 @@
     written permission of SharpTop Software, LLC. For permission requests, write to the author at info@sharptop.co.
 -->
 <template>
+<<<<<<< HEAD
     <page-header if.bind="event.title" title.bind="event.title" image.bind="event.media.url"></page-header>
+=======
+    <page-header if.bind="event.title" title.bind="event.title" image.bind="eventsImageURL"></page-header>
+>>>>>>> make events images dynamic too.
     <page-body>
         <div class="post" class.bind="event.sharingInfo ? 'has-share-link' : ''" if.bind="event">
             <h1>${event.startDate | date}</h1>

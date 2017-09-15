@@ -128,6 +128,57 @@ a.icon-link {
     }
 }
 
+<<<<<<< HEAD
+=======
+.back-button .icon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.post-extra-fields {
+    .list-block .list-block-label {
+        margin: 10px 0 15px;
+        font-size: 20px;
+        color: #000;
+    }
+
+    .list-block .item-title {
+        color: #255a72;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .list-block .item-after {
+        max-height: initial;
+        display: block;
+        padding-left: 0;
+        width: 100%;
+        white-space: normal;
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .item-inner {
+        flex-direction: column;
+        align-items: flex-start
+    }
+}
+
+.card-wrap {
+    color: #000;
+
+    .home-postGroup-summary > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.page-header {
+    background-size: cover;
+}
+
+>>>>>>> changed back button to white
 .share-link {
     color: color(neutral, dark);
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2016 by SharpTop Software, LLC
  * All rights reserved. No part of this software project may be used, reproduced, distributed, or transmitted in any
@@ -13,11 +14,42 @@ import {Router} from "aurelia-router";
 export class PostGroupsShow {
 
     constructor(postGroupService, router, messageService, rssPostService, navigationService) {
+=======
+import {inject, bindable, bindingMode} from "aurelia-framework";
+import {PostGroupService, MessageService, NavigationService} from "../../services/index";
+import {PagedContentResolver} from "../../resources/templates/paged-content/paged-content-resolver"
+import {PagedContentMemory} from "../../resources/templates/paged-content/paged-content-memory"
+import {FilterContentResolver} from "../../resources/templates/filter-content/filter-content-resolver"
+import {FilterContentMemory} from "../../resources/templates/filter-content/filter-content-memory"
+import {AccordionService} from "../../services/accordion-service"
+import {Router} from "aurelia-router";
+
+@inject(PostGroupService, Router, MessageService, NavigationService, PagedContentResolver.of(PagedContentMemory), FilterContentResolver.of(FilterContentMemory), AccordionService)
+export class PostGroupsShow {
+
+    @bindable postGroup
+    @bindable({defaultBindingMode: bindingMode.twoWay}) filteredPosts = []
+    pagedContentMemory
+    accordionService
+    filterContentMemory
+
+    constructor(postGroupService, router, messageService, navigationService, pagedContentResolver, filterContentResolver, accordionService) {
+>>>>>>> Added search accordion
         this.postGroupService = postGroupService
         this.router = router
         this.messageService = messageService
         this.rssPostService = rssPostService
         this.navigationService = navigationService
+<<<<<<< HEAD
+=======
+        this.accordionService = accordionService
+        this.pagedContentResolver = pagedContentResolver
+        this.filterContentResolver = filterContentResolver
+>>>>>>> Added search accordion
+    }
+
+    attached() {
+        this.accordionService.setup()
     }
 
     activate(params) {

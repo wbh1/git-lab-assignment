@@ -5,12 +5,53 @@
     written permission of SharpTop Software, LLC. For permission requests, write to the author at info@sharptop.co.
 -->
 <template>
+<<<<<<< HEAD
     <page-header if.bind="postGroup.title" title.bind="postGroup.title" image.bind="postGroup.media.url"></page-header>
 
     <!--TODO: do the click method binding the right way -->
     <div repeat.for="post of postGroup.publishedPosts | sort:'date':'descending'" click.trigger="showPost(post)">
         <arrow-card>
             <card-header title.bind="post.title"></card-header>
+=======
+    <require from="../../resources/templates/paged-content/paged-content"></require>
+    <require from="../../resources/templates/filter-content/filter-content"></require>
+
+    <div class="page-header-wrap">
+        <page-header if.bind="postGroup.title" title.bind="postGroup.title" image.bind="postGroup.media.url"></page-header>
+
+        <div class="search-icon-wrap">
+            <i class="icon fa fa-search"></i>
+        </div>
+    </div>
+
+    <page-body>
+        <filter-content
+            extra-fields.bind="postGroup.rssMetadata"
+            data.bind="postGroup"
+            filtered-posts.bind="filteredPosts"
+            class="accordion-target"
+            style="display: none;"
+            if.bind="postGroup.postGroups.length == 0"
+        >
+        </filter-content>
+
+        <paged-content class="post-group-paged-content"
+                       content.bind="filteredPosts"
+                       limit-per-page.bind="5"
+                       current-page-index.bind="pagedContentMemory.pagedIndex"
+                       sort-by.bind="'date'"
+                       sort-direction.bind="'descending'" if.bind="postGroup.postGroups.length == 0">
+            <template replace-part="paged-content-list-item">
+                <div click.trigger="navigationService.go(item)">
+                    <arrow-card>
+                        <card-header title.bind="item.title"></card-header>
+
+                        <div class="post-group-post-summary" innerHTML.bind="item.summary | markdown"></div>
+                    </arrow-card>
+                </div>
+            </template>
+        </paged-content>
+>>>>>>> Added search accordion
 
 <<<<<<< HEAD
             <div innerHTML.bind="post.summary" class="post-summary"></div>

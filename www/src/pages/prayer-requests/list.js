@@ -6,7 +6,14 @@
  */
 
 import {inject} from 'aurelia-framework'
+<<<<<<< HEAD
 import {PrayerRequestService, NavigationService} from '../../services/index'
+=======
+import {PrayerRequestService, NavigationService, MessageService} from 'services/index'
+import {Router} from "aurelia-router";
+import {PagedContentResolver} from "resources/templates/paged-content/paged-content-resolver"
+import {PagedContentMemory} from "resources/templates/paged-content/paged-content-memory"
+>>>>>>> Fix prayer requests
 
 @inject(PrayerRequestService, NavigationService)
 export class PrayerRequestsList {

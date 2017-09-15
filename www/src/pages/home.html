@@ -38,6 +38,7 @@
 
     <!-- POST GROUPS -->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <card repeat.for="postGroup of feed.postGroups">
         <card-header title.bind="postGroup.title"></card-header>
         <share-link if.bind="postGroup.lastPost.sharingInfo" sharing-info.bind="postGroup.lastPost.sharingInfo"></share-link>
@@ -59,6 +60,14 @@
         </card>
     </a>
 >>>>>>> Fixed broken post groups on home from bad merge
+=======
+    <card click.delegate="navigationService.getPostGroupDestination(postGroup)" repeat.for="postGroup of feed.postGroups" if.bind="postGroup.showOnHomeFeed">
+        <card-header title.bind="postGroup.title"></card-header>
+        <share-link if.bind="postGroup.lastPost.sharingInfo" sharing-info.bind="postGroup.lastPost.sharingInfo"></share-link>
+        <image-embed if.bind="postGroup.media.url" source.bind="postGroup.media.url" full-width="true"></image-embed>
+        <div innerHTML.bind="postGroup.postGroupsSummary | markdown" if.bind="postGroup.postGroupsSummary" class="home-postGroup-summary"></div>
+    </card>
+>>>>>>> FFS
 
     <!-- PRAYER TIME -->
     <card if.bind="feed.hasPrayerRequests">

@@ -10,3 +10,8 @@ build
 *.apk
 *.ipa
 *.zip
+<<<<<<< HEAD
+=======
+plugins
+manifest.plist
+>>>>>>> add script to generate manifest.plist from config.xml

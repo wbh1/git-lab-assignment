@@ -5,9 +5,16 @@
     written permission of SharpTop Software, LLC. For permission requests, write to the author at info@sharptop.co.
 -->
 <template>
-    <slider show-controls="true" loop="true" if.bind="feed.bannerImages" autoplay="5000">
-        <slide repeat.for="bannerImage of feed.bannerImages" aspect-ratio=".5625">
-            <img src.bind="bannerImage.image.url" click.delegate="navigationService.go(bannerImage.link)">
+    <slider
+        if.bind="feed.bannerImages"
+        autoplay="5000"
+        show-controls="true">
+        <slide
+            repeat.for="bannerImage of feed.bannerImages"
+            aspect-ratio=".5625">
+            <img
+                src.bind="bannerImage.image.url"
+                click.delegate="navigationService.go(bannerImage.link)">
         </slide>
     </slider>
 

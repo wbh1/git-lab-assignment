@@ -122,7 +122,6 @@
                     "get-prop",
                     "moment",
                     "typer",
-                    "jquery",
                     {
                         "name":"markdown-it",
                         "path": "../node_modules/markdown-it/dist",

@@ -1,20 +1,16 @@
 import {inject} from "aurelia-framework";
-import {PostGroupService, MessageService, NavigationService} from "../../services/index";
-import {PagedContentResolver} from "../../resources/templates/paged-content-resolver"
-import {PagedContentMemory} from "../../resources/templates/paged-content-memory"
+import {PostGroupService, MessageService, RssPostService, NavigationService} from "../../services/index";
 import {Router} from "aurelia-router";
 
-@inject(PostGroupService, Router, MessageService, NavigationService, PagedContentResolver.of(PagedContentMemory))
+@inject(PostGroupService, Router, MessageService, RssPostService, NavigationService)
 export class PostGroupsShow {
 
-    pagedContentMemory
-
-    constructor(postGroupService, router, messageService, navigationService, pagedContentResolver) {
+    constructor(postGroupService, router, messageService, rssPostService, navigationService) {
         this.postGroupService = postGroupService
         this.router = router
         this.messageService = messageService
+        this.rssPostService = rssPostService
         this.navigationService = navigationService
-        this.pagedContentResolver = pagedContentResolver
     }
 
     activate(params) {
@@ -24,16 +20,10 @@ export class PostGroupsShow {
             return
         }
 
-        this.postGroupService.findOne(params.id).promise.then((res) => {
-            this.postGroup = res
+        this.postGroup = this.postGroupService.findOne(params.id)
+    }
 
-            if(this.postGroup.postGroups.length === 0) {
-                this.pagedContentMemory = this.pagedContentResolver({'id': params.id})
-                this.pagedContentMemory.setPage((params.page) ? parseInt(params.page) - 1 : 0)
-            }
-        }, (err) => {
-            this.messageService.error("Post Group not found", true)
-            this.router.navigateBack()
-        })
+    showPost(post) {
+        this.navigationService.go(post);
     }
 }

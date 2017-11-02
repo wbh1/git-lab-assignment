@@ -30,10 +30,9 @@ let models = [
 
 export class ResourceService {
 
-    constructor(api, entityClass = Resource, objectCache = null) {
+    constructor(api, entityClass = Resource) {
         this.api = api
         this.entityClass = entityClass
-        this.objectCache = objectCache
     }
 
     save(object) {
@@ -49,10 +48,6 @@ export class ResourceService {
     }
 
     findOne(id) {
-        if (this.objectCache && this.objectCache.has(id)) {
-            return this.objectCache.get(id)
-        }
-
         return this.convertRequestToResource(this.api.find(this.entityClass.endpoint, id))
     }
 

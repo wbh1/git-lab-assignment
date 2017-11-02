@@ -1,4 +1,4 @@
-# Git Lab Assignment [![Build Status](https://travis-ci.org/wbh1/git-lab-assignment.svg?branch=master)](https://travis-ci.org/wbh1/git-lab-assignment)
+# Git Lab Assignment -- Finished! [![Build Status](https://travis-ci.org/wbh1/git-lab-assignment.svg?branch=master)](https://travis-ci.org/wbh1/git-lab-assignment)
 
 This assignment will give you a chance to apply your git skills and stretch them a good deal. It is based on the [ChurchConnect Mobile App](https://github.com/churchconnect/mobile-app).
 
